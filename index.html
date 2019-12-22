@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Bootstrap table template</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<h1 style="text-align: center;">Simple Table Template with Thymeleaf</h1> <br>
+	<div class="container-fluid">
+		<table class="table" style="text-align: center;">
+			<thead class="thead text-white">
+				<tr class="row" style="background-color: rgb(69, 74, 88);">
+					<th class="col-md-1">ID</th>
+					<th class="col-md-2">Name</th>
+					<th class="col-md-2">Field</th>
+					<th class="col-md-3">Field</th>
+					<th class="col-md-4">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row" th:each="object : @{objectList}">
+					<td class="col-md-1" th:text="${object.field}">1810</td>
+					<td class="col-md-2" th:text="${object.field}">Sukhpreet</td>
+					<td class="col-md-2" th:text="${object.field}">Singh</td>
+					<td class="col-md-3" th:text="${object.field}">panesar.pb08@gmail.com</td>
+					<td class="col-md-4">
+						<a th:href="@{/details/{id}(id=${object.id})}" class="btn-sm btn-info text-white" role="button">DETAILS</a>
+						<a th:href="@{/edit/{id}(id=${object.id})}" class="btn-sm btn-primary text-white" role="button">EDIT</a>
+						<a th:href="@{/delete/{id}(id=${object.id})}" class="btn-sm btn-danger text-white" role="button">DELETE</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<footer class="blockquote-footer">Designed by Sukhpreet Singh</footer>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
